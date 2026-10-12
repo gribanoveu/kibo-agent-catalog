@@ -8,7 +8,10 @@
       "description": "Reviews the current change for bugs before a commit: reads the diff, goes through a checklist, reports findings by severity.",
       "rev": "1",
       "path": "skills/review",
-      "files": ["SKILL.md", "checklist.md"]
+      "files": [
+        "SKILL.md",
+        "checklist.md"
+      ]
     },
     {
       "id": "changelog",
@@ -34,6 +37,14 @@
       "description": "GitHub's remote MCP server: issues, pull requests, code search. Needs a personal access token.",
       "rev": "1",
       "path": "mcp/github.json"
+    },
+    {
+      "id": "block-force-push",
+      "kind": "hooks",
+      "name": "Block force push",
+      "description": "Stops the agent's runCommand from running git push --force or -f; --force-with-lease still goes through.",
+      "rev": "1",
+      "path": "hooks/block-force-push.json"
     }
   ]
 }
