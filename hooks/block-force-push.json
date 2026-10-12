@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "runCommand",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "grep -Eq 'git push[^\"]*(--force([ \"]|$)|-f([ \"]|$))' && { echo 'Force push is blocked by the block-force-push hook. Ask the user to run it.' >&2; exit 2; }; exit 0",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

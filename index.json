@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "review",
+      "kind": "skill",
+      "name": "Code review",
+      "description": "Reviews the current change for bugs before a commit: reads the diff, goes through a checklist, reports findings by severity.",
+      "rev": "1",
+      "path": "skills/review",
+      "files": ["SKILL.md", "checklist.md"]
+    },
+    {
+      "id": "changelog",
+      "kind": "command",
+      "name": "/changelog",
+      "description": "Adds a CHANGELOG.md line under Unreleased for the change in the working tree.",
+      "rev": "1",
+      "path": "commands/changelog.md"
+    },
+    {
+      "id": "tls-cert",
+      "kind": "runbook",
+      "role": "kubernetes",
+      "name": "TLS certificate rejected",
+      "description": "Kubernetes role: x509 errors, an expired or missing ingress certificate, cert-manager not Ready.",
+      "rev": "1",
+      "path": "runbooks/kubernetes/tls-cert.md"
+    },
+    {
+      "id": "github",
+      "kind": "mcp",
+      "name": "GitHub",
+      "description": "GitHub's remote MCP server: issues, pull requests, code search. Needs a personal access token.",
+      "rev": "1",
+      "path": "mcp/github.json"
+    }
+  ]
+}
