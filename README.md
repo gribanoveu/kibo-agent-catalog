@@ -1,7 +1,7 @@
 # Kibo Agent catalog
 
 Skills, slash commands, runbooks, MCP servers and hooks for [Kibo Agent](https://github.com/gribanoveu/kibo-agent),
-installed from Settings → Catalog. The app reads this repository over plain HTTP — `index.json`
+installed from the Catalog page in its sidebar. The app reads this repository over plain HTTP — `index.json`
 first, then the files of what you install — so it needs neither `git` nor a token.
 
 Base URL for the app's settings:

@@ -14,12 +14,72 @@
       ]
     },
     {
+      "id": "commit",
+      "kind": "skill",
+      "name": "Commit",
+      "description": "Commits the change in the working tree with a message in the repository's own style: only what is staged or named, one concern per commit, hooks never skipped.",
+      "rev": "1",
+      "path": "skills/commit",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "id": "pr-description",
+      "kind": "skill",
+      "name": "PR description",
+      "description": "Writes a pull request's title and description from the branch's commits and diff: what changes and why, how it was really checked, what to review closely.",
+      "rev": "1",
+      "path": "skills/pr-description",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "id": "debug-failing-test",
+      "kind": "skill",
+      "name": "Debug a failing test",
+      "description": "Reproduces a failing or flaky test alone, reads the whole failure, narrows it down and fixes the cause — never by weakening the test.",
+      "rev": "1",
+      "path": "skills/debug-failing-test",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "id": "mutation-check",
+      "kind": "skill",
+      "name": "Mutation check",
+      "description": "Checks that tests would catch a bug: breaks the changed code one edit at a time, runs the tests, and writes a test for every break that still passes.",
+      "rev": "1",
+      "path": "skills/mutation-check",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
       "id": "changelog",
       "kind": "command",
       "name": "/changelog",
       "description": "Adds a CHANGELOG.md line under Unreleased for the change in the working tree.",
       "rev": "1",
       "path": "commands/changelog.md"
+    },
+    {
+      "id": "commit",
+      "kind": "command",
+      "name": "/commit",
+      "description": "Commits the working tree's change with a message matching the repository's log and commit rules.",
+      "rev": "1",
+      "path": "commands/commit.md"
+    },
+    {
+      "id": "release-notes",
+      "kind": "command",
+      "name": "/release-notes",
+      "description": "Drafts release notes since the last tag from CHANGELOG.md, merged PRs and the log: Added, Changed, Fixed, Removed.",
+      "rev": "1",
+      "path": "commands/release-notes.md"
     },
     {
       "id": "tls-cert",
@@ -31,12 +91,37 @@
       "path": "runbooks/kubernetes/tls-cert.md"
     },
     {
+      "id": "job-failed",
+      "kind": "runbook",
+      "role": "kubernetes",
+      "name": "Job or CronJob fails",
+      "description": "Kubernetes role: BackoffLimitExceeded, DeadlineExceeded, pods gone after the TTL, a CronJob suspended, skipped behind a hanging run or past its missed starts.",
+      "rev": "1",
+      "path": "runbooks/kubernetes/job-failed.md"
+    },
+    {
       "id": "github",
       "kind": "mcp",
       "name": "GitHub",
       "description": "GitHub's remote MCP server: issues, pull requests, code search. Needs a personal access token.",
       "rev": "1",
       "path": "mcp/github.json"
+    },
+    {
+      "id": "context7",
+      "kind": "mcp",
+      "name": "Context7",
+      "description": "Up-to-date documentation and code examples for libraries and frameworks. Remote server, works without a key.",
+      "rev": "1",
+      "path": "mcp/context7.json"
+    },
+    {
+      "id": "grafana",
+      "kind": "mcp",
+      "name": "Grafana",
+      "description": "Dashboards, Prometheus, Loki and Tempo queries, alerts and incidents of your Grafana, read-only. Runs with uvx; needs the Grafana URL and a service account token.",
+      "rev": "1",
+      "path": "mcp/grafana.json"
     },
     {
       "id": "block-force-push",
