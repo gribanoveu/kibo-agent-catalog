@@ -1,0 +1,9 @@
+{
+  "command": "agent-browser",
+  "args": [
+    "mcp",
+    "--tools",
+    "all"
+  ],
+  "exposure": "deferred"
+}

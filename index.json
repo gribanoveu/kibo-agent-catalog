@@ -124,6 +124,14 @@
       "path": "mcp/grafana.json"
     },
     {
+      "id": "agent-browser",
+      "kind": "mcp",
+      "name": "Browser",
+      "description": "A real Chromium the agent drives: opens a page, reads it as an accessibility tree with refs, then clicks, fills and extracts through them. Runs the `agent-browser mcp` command of the open-source agent-browser CLI (Apache-2.0, vercel-labs); install it once with `npm i -g agent-browser && agent-browser install`, which downloads Chrome for Testing.",
+      "rev": "1",
+      "path": "mcp/agent-browser.json"
+    },
+    {
       "id": "block-force-push",
       "kind": "hooks",
       "name": "Block force push",
