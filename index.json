@@ -5,12 +5,13 @@
       "id": "review",
       "kind": "skill",
       "name": "Code review",
-      "description": "Reviews the current change for bugs before a commit: reads the diff, goes through a checklist, reports findings by severity.",
-      "rev": "1",
+      "description": "Reviews a change for real problems before a commit: reads the diff and the code around it, traces one input to the failure before believing a finding, ranks what holds by severity, and never fixes while reviewing. Ships the reviewer prompt for a clean-context subagent.",
+      "rev": "2",
       "path": "skills/review",
       "files": [
         "SKILL.md",
-        "checklist.md"
+        "checklist.md",
+        "review-prompt.md"
       ]
     },
     {
