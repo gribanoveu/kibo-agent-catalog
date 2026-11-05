@@ -174,6 +174,30 @@
       "description": "Stops the agent's runCommand from running git push --force or -f; --force-with-lease still goes through.",
       "rev": "1",
       "path": "hooks/block-force-push.json"
+    },
+    {
+      "id": "block-destructive-git",
+      "kind": "hooks",
+      "name": "Block destructive git",
+      "description": "Stops the agent's runCommand from throwing work away with no way back: git reset --hard, git clean -f, git checkout or git restore over the whole tree, git stash drop or clear, git branch -D. One grep over the command line, no network, no files touched, 5 s budget; a command that merely mentions one of these in quotes is stopped too.",
+      "rev": "1",
+      "path": "hooks/block-destructive-git.json"
+    },
+    {
+      "id": "no-git-add-all",
+      "kind": "hooks",
+      "name": "No git add -A",
+      "description": "Stops the agent's runCommand from staging the whole tree with git add -A, git add --all or git add ., so only the files a change is about go in. One grep over the command line, no network, no files touched, 5 s budget.",
+      "rev": "1",
+      "path": "hooks/no-git-add-all.json"
+    },
+    {
+      "id": "kube-delete-guard",
+      "kind": "hooks",
+      "name": "Kube delete guard",
+      "description": "Kubernetes role: stops kubeDelete of a StatefulSet or a PersistentVolumeClaim, whose data the app's backup does not carry, and kubeScale to 0, which stops a workload on the agent's own initiative. The namespace is already pinned by the app and cluster-wide kinds are refused, so this guards what the approval card does not. Reads the call's own arguments from stdin, 5 s budget.",
+      "rev": "1",
+      "path": "hooks/kube-delete-guard.json"
     }
   ]
 }

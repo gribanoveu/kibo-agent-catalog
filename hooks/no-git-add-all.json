@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "runCommand",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "grep -Eq 'git +add +(-A|--all|\\.)([^A-Za-z0-9_./-]|$)' && { echo 'Do not sweep the whole tree in: stage the files this change is about, by path. git add -A, --all and . take files the user never mentioned.' >&2; exit 2; }; exit 0",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

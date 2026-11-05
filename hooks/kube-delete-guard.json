@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "kubeDelete",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "in=$(cat); printf '%s' \"$in\" | grep -Eq '\"kind\"[[:space:]]*:[[:space:]]*\"(StatefulSet|PersistentVolumeClaim)\"' && { echo 'Deleting a StatefulSet or a PersistentVolumeClaim destroys data the backup does not carry. Ask the user to confirm it in their own words and run it themselves.' >&2; exit 2; }; exit 0",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "kubeScale",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "in=$(cat); printf '%s' \"$in\" | grep -Eq '\"replicas\"[[:space:]]*:[[:space:]]*0([^0-9]|$)' && { echo 'Scaling to zero stops the workload. Say what it would stop and let the user ask for it, rather than doing it on your own initiative.' >&2; exit 2; }; exit 0",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
