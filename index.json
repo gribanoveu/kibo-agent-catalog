@@ -132,6 +132,30 @@
       "path": "mcp/agent-browser.json"
     },
     {
+      "id": "core-components-mcp",
+      "kind": "mcp",
+      "name": "Core Components",
+      "description": "@alfalab/core-components as the model needs it while writing UI: 4 tools that list the components, return one component's props with types and defaults, its demo code, and its changelog — one version, or everything between two. Runs the published package @alfalab/core-components-mcp with npx; it takes no token, reads no environment and makes no network calls, the component data ships inside it. Needs Node 24+. The same package installs the matching skill for a project: npx @alfalab/core-components-mcp@latest add-skill writes .agents/skills/core-components/. The package declares neither a license nor a repository field, so treat it as Alfa-Bank's own unpublished-source tool.",
+      "rev": "1",
+      "path": "mcp/core-components-mcp.json"
+    },
+    {
+      "id": "bitbucket",
+      "kind": "mcp",
+      "name": "Bitbucket",
+      "description": "Bitbucket Server / Data Center pull requests as a reviewer works them: raw unified diffs scoped to a path or glob, inline comments with applyable suggestions, resolve/reopen, approve or request changes, plus grep and blame on any branch for the surrounding code. Runs the MIT package @nexus2520/bitbucket-mcp-server (github.com/pdogra1299/bitbucket-mcp-server) with npx, talks only to the given Bitbucket URL, and its 25 tools arrive on demand. In its entry delete_branch and merge_pull_request refuse main, master and release/*, and NODE_TLS_REJECT_UNAUTHORIZED=1 keeps certificate verification on — for an instance behind an internal CA add NODE_EXTRA_CA_CERTS with that CA's .pem instead of turning verification off. Needs Node 22+. Cloud: drop BITBUCKET_BASE_URL and put the app password in BITBUCKET_TOKEN.",
+      "rev": "1",
+      "path": "mcp/bitbucket.json"
+    },
+    {
+      "id": "jira",
+      "kind": "mcp",
+      "name": "Jira",
+      "description": "Small Jira Server / Data Center server: 13 tools over REST v2 with a personal access token — the issue and its comments, JQL search, workflow transitions, create/update, and attachments kept inside folders you allow. Runs the MIT package @cup0ra/jira-mcp (github.com/cup0ra/jira-mcp) with npx; it talks only to JIRA_BASE_URL, refuses redirects and paths with .., retries reads twice on 429/502/503/504 honouring Retry-After, and never retries a write. Needs Node 20+. It has no TLS or proxy settings of its own: NODE_TLS_REJECT_UNAUTHORIZED=1 keeps certificate verification on — for an instance behind an internal CA add NODE_EXTRA_CA_CERTS with that CA's .pem instead of turning verification off — and it does not read HTTPS_PROXY. Give the canonical URL including the context path, e.g. https://jira.company.com/jira.",
+      "rev": "1",
+      "path": "mcp/jira.json"
+    },
+    {
       "id": "block-force-push",
       "kind": "hooks",
       "name": "Block force push",

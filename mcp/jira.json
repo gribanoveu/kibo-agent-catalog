@@ -1,0 +1,13 @@
+{
+  "command": "npx",
+  "args": [
+    "-y",
+    "@cup0ra/jira-mcp"
+  ],
+  "env": {
+    "JIRA_BASE_URL": "${JIRA_BASE_URL}",
+    "JIRA_PAT": "${JIRA_PAT}",
+    "NODE_TLS_REJECT_UNAUTHORIZED": "1"
+  },
+  "exposure": "deferred"
+}

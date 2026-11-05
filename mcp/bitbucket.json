@@ -1,0 +1,15 @@
+{
+  "command": "npx",
+  "args": [
+    "-y",
+    "@nexus2520/bitbucket-mcp-server"
+  ],
+  "env": {
+    "BITBUCKET_BASE_URL": "${BITBUCKET_BASE_URL}",
+    "BITBUCKET_USERNAME": "${BITBUCKET_USERNAME}",
+    "BITBUCKET_TOKEN": "${BITBUCKET_TOKEN}",
+    "BITBUCKET_PROTECTED_BRANCHES": "main,master,release/*",
+    "NODE_TLS_REJECT_UNAUTHORIZED": "1"
+  },
+  "exposure": "deferred"
+}
