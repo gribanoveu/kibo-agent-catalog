@@ -58,6 +58,17 @@
       ]
     },
     {
+      "id": "ponytail",
+      "kind": "skill",
+      "name": "Ponytail Kibo",
+      "description": "The laziest solution that works: YAGNI, reuse before new code, stdlib before custom code, one line before fifty. A senior dev's reflex for any coding task, in three intensity levels — lite, full, ultra.",
+      "rev": "1",
+      "path": "skills/ponytail",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
       "id": "changelog",
       "kind": "command",
       "name": "/changelog",
