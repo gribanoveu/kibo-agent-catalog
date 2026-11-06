@@ -1,0 +1,11 @@
+{
+  "command": "npx",
+  "args": [
+    "-y",
+    "@atlassian-dc-mcp/confluence"
+  ],
+  "env": {
+    "CONFLUENCE_HOST": "${CONFLUENCE_HOST}",
+    "CONFLUENCE_API_TOKEN": "${CONFLUENCE_API_TOKEN}"
+  }
+}

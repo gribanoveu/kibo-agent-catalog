@@ -152,6 +152,14 @@
       "path": "mcp/core-components-mcp.json"
     },
     {
+      "id": "confluence",
+      "kind": "mcp",
+      "name": "Confluence",
+      "description": "Confluence Server / Data Center for an agent, 6 tools only: read a page by id, CQL search, create and update content, upload and download an attachment. Runs the MIT package @atlassian-dc-mcp/confluence (github.com/b1ff/atlassian-dc-mcp) with npx and talks to CONFLUENCE_HOST alone. A page body comes back as Confluence storage XML unless the call asks for bodyMode text with maxBodyChars — that mode is readable but drops link URLs, attachment filenames and macro parameter names, while updateContent and its oldStr/newStr edits must stay in storage XML. Under a context path set CONFLUENCE_API_BASE_PATH=/wiki (or the full URL); a plain http instance needs the scheme spelled out in CONFLUENCE_HOST. A token can instead be kept out of this entry entirely by running npx @atlassian-dc-mcp/confluence setup once, which stores it in the macOS Keychain.",
+      "rev": "1",
+      "path": "mcp/confluence.json"
+    },
+    {
       "id": "bitbucket",
       "kind": "mcp",
       "name": "Bitbucket",
