@@ -6,7 +6,7 @@
   ],
   "env": {
     "JIRA_BASE_URL": "${JIRA_BASE_URL}",
-    "JIRA_PAT": "${JIRA_PAT}",
+    "JIRA_PAT": "${JIRA_PERSONAL_ACCESS_TOKEN}",
     "NODE_TLS_REJECT_UNAUTHORIZED": "1"
   },
   "exposure": "deferred"
