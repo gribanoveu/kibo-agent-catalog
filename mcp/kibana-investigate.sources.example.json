@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "app_logs",
+      "name": "Application logs",
+      "description": "What the application itself logged while handling a request — the first place to look for an error.",
+      "tags": ["app", "logs", "runtime"],
+      "timeField": "@timestamp",
+      "backend": {
+        "kind": "kibana_internal_search_es",
+        "path": "/internal/search/es",
+        "index": ["app-logs-*"]
+      },
+      "schema": {
+        "kind": "kibana_data_views_fields",
+        "index": ["app-logs-*"]
+      },
+      "fieldHints": [
+        {
+          "name": "trace.id",
+          "aliases": ["trace_id", "traceId", "correlation_id"],
+          "description": "One id shared by every line of a single request's path."
+        },
+        {
+          "name": "service.name",
+          "aliases": ["service", "app", "component"],
+          "description": "Which service or module wrote the line."
+        },
+        {
+          "name": "log.level",
+          "aliases": ["level", "severity", "loglevel"],
+          "description": "ERROR / WARN / INFO, as the logger emitted it."
+        }
+      ],
+      "defaultTextFields": ["message", "event.original"],
+      "evidenceFields": ["trace.id", "service.name", "log.level", "error.type", "error.message"]
+    },
+    {
+      "id": "api_logs",
+      "name": "API access logs",
+      "description": "Request and response lines for HTTP endpoints: status codes, latency, the route that was called.",
+      "tags": ["api", "http", "latency"],
+      "timeField": "@timestamp",
+      "backend": {
+        "kind": "kibana_internal_search_es",
+        "path": "/internal/search/es",
+        "index": ["api-logs-*"]
+      },
+      "schema": {
+        "kind": "kibana_data_views_fields",
+        "index": ["api-logs-*"]
+      },
+      "fieldHints": [
+        {
+          "name": "url.path",
+          "aliases": ["route", "path", "uri"],
+          "description": "The route or path pattern that was requested."
+        },
+        {
+          "name": "http.response.status_code",
+          "aliases": ["status", "statusCode", "status_code"],
+          "description": "HTTP response code."
+        },
+        {
+          "name": "event.duration",
+          "aliases": ["duration_ms", "latency", "elapsed"],
+          "description": "How long the request took."
+        }
+      ],
+      "defaultTextFields": ["message"],
+      "evidenceFields": ["url.path", "http.response.status_code", "event.duration", "trace.id"]
+    }
+  ]
+}
