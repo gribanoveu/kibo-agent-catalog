@@ -1,0 +1,8 @@
+{
+  "command": "kibana-mcp-server",
+  "env": {
+    "KIBANA_URL": "${KIBANA_URL}",
+    "KIBANA_USERNAME": "${KIBANA_USERNAME}",
+    "KIBANA_PASSWORD": "${KIBANA_PASSWORD}"
+  }
+}

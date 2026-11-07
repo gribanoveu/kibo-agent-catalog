@@ -176,6 +176,14 @@
       "path": "mcp/jira.json"
     },
     {
+      "id": "kibana-context",
+      "kind": "mcp",
+      "name": "Kibana context",
+      "description": "Kibana or Elasticsearch logs with the lines around a hit: 3 tools — search by query string within a time range, list indices or index patterns, and get_log_context, which returns the neighbouring entries of a found document. That last one is what makes an error traceable without re-running half a dozen searches. A single Rust binary with no runtime to install: take kibana-mcp-server from github.com/nizovtsevnv/kibana-mcp-server/releases (v0.2.0, a .sha256 sits beside the archive) and put it on PATH, or build it with cargo. It works out for itself whether KIBANA_URL points at Kibana or at Elasticsearch, formats entries by Elastic Common Schema, and speaks stdio. Read-only. For an instance with a self-signed certificate set KIBANA_INSECURE=true, and an API key in KIBANA_API_KEY works instead of the username and password. Treat it as a small, quiet project: one author, last release March 2026.",
+      "rev": "1",
+      "path": "mcp/kibana-context.json"
+    },
+    {
       "id": "block-force-push",
       "kind": "hooks",
       "name": "Block force push",
