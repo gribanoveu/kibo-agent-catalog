@@ -184,6 +184,14 @@
       "path": "mcp/kibana-context.json"
     },
     {
+      "id": "kibana-investigate",
+      "kind": "mcp",
+      "name": "Kibana investigation",
+      "description": "Read Kibana logs without letting the model guess index names: 5 tools — discover the configured sources, describe_fields to find exact-match fields, query over an absolute time window (hits, count, histogram, terms, stats, grouped_top_hits), filter by a known exact field, and configure_index to validate and save the exact index or pattern you name. Runs the MIT package @havesomecode/kibana-mcp-server with npx, read-only, Node 22+. It starts only from a saved connection, so run once first: npx -y @havesomecode/kibana-mcp-server bootstrap --client none (the --client none matters — the default writes into Codex's own config). That keeps the profile in ~/Library/Application Support/kibana-mcp-server on macOS; KIBANA_BASE_URL, KIBANA_USERNAME and KIBANA_PASSWORD alone are not enough, because a source catalog is required too — either the one configure_index manages or a file named in KIBANA_SOURCE_CATALOG_PATH. Nothing is auto-selected: the index or pattern has to be named, and the tool descriptions forbid enumerating, scanning or guessing one.",
+      "rev": "1",
+      "path": "mcp/kibana-investigate.json"
+    },
+    {
       "id": "block-force-push",
       "kind": "hooks",
       "name": "Block force push",
