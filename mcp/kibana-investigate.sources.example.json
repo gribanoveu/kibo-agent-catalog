@@ -3,8 +3,13 @@
     {
       "id": "kube_logs",
       "name": "Kubernetes application logs",
-      "description": "Everything the services in the cluster logged, shipped through logstash (topic kube_apps, stakan cluster_a). The place to look for an error a user hit.",
-      "tags": ["kube", "app", "logs", "runtime"],
+      "description": "Everything the services in the cluster logged, shipped through logstash (topic kube_apps, stakan cluster_a). The place to look for an error a user hit. Query the last 24 hours first and widen only when a trace leads earlier: this stream keeps about a week (the oldest documents were from the end of October), and a window before that returns nothing without saying why.",
+      "tags": [
+        "kube",
+        "app",
+        "logs",
+        "runtime"
+      ],
       "timeField": "@timestamp",
       "backend": {
         "kind": "kibana_internal_search_es",
@@ -18,52 +23,99 @@
       "fieldHints": [
         {
           "name": "user_id",
-          "aliases": ["userId", "user.id", "client_id"],
+          "aliases": [
+            "userId",
+            "user.id",
+            "client_id"
+          ],
           "description": "Client id of the person the request was made for, e.g. XC9DB5."
         },
         {
           "name": "trace_id",
-          "aliases": ["traceId", "trace.id", "x-b3-traceid", "traceparent", "b3"],
+          "aliases": [
+            "traceId",
+            "trace.id",
+            "x-b3-traceid",
+            "traceparent",
+            "b3"
+          ],
           "description": "One id for a whole request path across services; the fastest way from an error to its neighbours."
         },
         {
           "name": "level",
-          "aliases": ["severity", "log.level", "level_value"],
+          "aliases": [
+            "severity",
+            "log.level",
+            "level_value"
+          ],
           "description": "INFO, DEBUG, WARN or ERROR. ERROR carries the exception in stack_trace."
         },
         {
           "name": "api_method",
-          "aliases": ["method", "operation", "r_method"],
+          "aliases": [
+            "method",
+            "operation",
+            "r_method"
+          ],
           "description": "The API method that was called, e.g. getAdvertOffers."
         },
         {
           "name": "app_id.keyword",
-          "aliases": ["app_id", "service", "service.name"],
+          "aliases": [
+            "app_id",
+            "service",
+            "service.name"
+          ],
           "description": "Which service wrote the line, e.g. restrictions-api, enp-api, compliance-api."
         },
         {
           "name": "phase",
-          "aliases": ["stage", "direction"],
+          "aliases": [
+            "stage",
+            "direction"
+          ],
           "description": "Where in the call path the line was written: thrift_in, thrift_out, thrift_err, browser -> nodejs, nodejs -> middle, middle -> nodejs."
         },
         {
           "name": "kubernetes.pod_name",
-          "aliases": ["pod", "pod_name"],
+          "aliases": [
+            "pod",
+            "pod_name"
+          ],
           "description": "Pod instance, when the same service runs in several replicas."
         },
         {
           "name": "duration_ms",
-          "aliases": ["duration", "latency", "event.duration"],
+          "aliases": [
+            "duration",
+            "latency",
+            "event.duration"
+          ],
           "description": "How long the call took, in milliseconds."
         },
         {
           "name": "container_version",
-          "aliases": ["version", "image_tag"],
+          "aliases": [
+            "version",
+            "image_tag"
+          ],
           "description": "Build of the service, useful to tell whether a bug came with a release."
         }
       ],
-      "defaultTextFields": ["message", "stack_trace"],
-      "evidenceFields": ["user_id", "trace_id", "level", "api_method", "app_id.keyword", "phase", "kubernetes.pod_name", "duration_ms"]
+      "defaultTextFields": [
+        "message",
+        "stack_trace"
+      ],
+      "evidenceFields": [
+        "user_id",
+        "trace_id",
+        "level",
+        "api_method",
+        "app_id.keyword",
+        "phase",
+        "kubernetes.pod_name",
+        "duration_ms"
+      ]
     }
   ]
 }
