@@ -3,5 +3,11 @@
   "args": [
     "-y",
     "@havesomecode/kibana-mcp-server"
-  ]
+  ],
+  "env": {
+    "KIBANA_BASE_URL": "${KIBANA_BASE_URL}",
+    "KIBANA_USERNAME": "${KIBANA_USERNAME}",
+    "KIBANA_PASSWORD": "${KIBANA_PASSWORD}",
+    "KIBANA_SOURCE_CATALOG_PATH": "${KIBANA_SOURCE_CATALOG_PATH}"
+  }
 }
