@@ -1,0 +1,12 @@
+{
+  "command": "npx",
+  "args": [
+    "-y",
+    "@gribanoveu/mcp-testops"
+  ],
+  "env": {
+    "TESTOPS_BASE_URL": "${TESTOPS_BASE_URL}",
+    "TESTOPS_TOKEN": "${TESTOPS_TOKEN}"
+  },
+  "exposure": "deferred"
+}

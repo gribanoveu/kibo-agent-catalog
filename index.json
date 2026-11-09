@@ -192,6 +192,14 @@
       "path": "mcp/kibana-exact.json"
     },
     {
+      "id": "testops",
+      "kind": "mcp",
+      "name": "Allure TestOps",
+      "description": "Allure TestOps for an agent: 30 named tools for the test-case domain — find cases by name or by AQL, read a case and its steps separately, ask in which launches a case ran, run a selection in a new launch, record a result, read launch statistics, create and update cases and test plans, close and reopen a launch. Runs the MIT server @gribanoveu/mcp-testops (github.com/gribanoveu/mcp-testops) with npx: the package downloads the standalone binary of your platform from its GitHub release once (22–40 MB) into ~/.cache/mcp-testops/ and reuses it, so no Python is needed. It talks only to TESTOPS_BASE_URL, retries reads twice on 429 and 5xx and never retries a write, and answers errors as data ({\"ok\": false, \"error\": ...}) instead of failing the call. There is no generic \"any path under /api\" tool by design, and the HTML duplicates of text fields never leave the server. A deleted case is soft-deleted and cannot be restored through it. TESTOPS_PROJECT_ID sets the project tools fall back to; TESTOPS_READ_ONLY=true hides the 13 write tools. TLS verification is off by default for self-signed stands — set TESTOPS_VERIFY_SSL=true where the certificate is valid. The token goes as Authorization: Api-Token <token>, the scheme the stand is expected to take; if it answers 401 or 403, try Bearer. Needs Node 18+; the same release carries a Python wheel, and uvx --from git+https://github.com/gribanoveu/mcp-testops mcp-testops runs it from source.",
+      "rev": "1",
+      "path": "mcp/testops.json"
+    },
+    {
       "id": "block-force-push",
       "kind": "hooks",
       "name": "Block force push",
