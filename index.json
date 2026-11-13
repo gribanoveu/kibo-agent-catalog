@@ -73,11 +73,12 @@
       "id": "testops-mcp",
       "kind": "skill",
       "name": "Allure TestOps",
-      "description": "Hands the model the Allure TestOps domain as the tools see it: which id comes from which reference tool, the read-then-write map of the 30 tools, ready-made chains (find a case, read its steps, its history, run a selection, read the results), the JSON shapes of tags, members and custom fields, the paging and sort arguments, and what the server deliberately cannot do. Use together with the testops MCP entry, which this skill describes.",
-      "rev": "1",
+      "description": "Hands the model the Allure TestOps domain as the tools see it: which id comes from which reference tool, the read-then-write map of the 30 tools, ready-made chains (find a case, read its steps, its history, run a selection, read the results), the JSON shapes of tags, members and custom fields, paging and sort, what the server deliberately cannot do, and how to read each kind of error answer. Ships aql.md beside SKILL.md: the query language as the stand accepts it - every field of test cases, results and launches, the operators, epoch dates, subfields and the ready-made queries. Use together with the testops MCP entry, which this skill describes.",
+      "rev": "2",
       "path": "skills/testops-mcp",
       "files": [
-        "SKILL.md"
+        "SKILL.md",
+        "aql.md"
       ]
     },
     {
