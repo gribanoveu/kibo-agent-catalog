@@ -246,7 +246,7 @@
     {
       "id": "testops-cli",
       "kind": "skill",
-      "name": "Allure TestOps из терминала",
+      "name": "Allure TestOps CLI",
       "path": "skills/testops-cli",
       "files": [
         "SKILL.md",
