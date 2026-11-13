@@ -40,8 +40,24 @@ from `get_test_case_steps`. `list_test_cases` rows carry neither descriptions no
 
 ## 3. Recipes
 
-**Find a case and read it.** `search_test_cases(name="login")` turns the name into AQL `name ~ "login"` on
-the server — there is no client-side filtering. For a compound condition, `validate_aql(rql='tag.name = "smoke"')`
+### AQL: what the stand accepts
+
+Grammar is the one in [docs.qameta.io/reference/aql](https://docs.qameta.io/reference/aql), checked
+against a live stand. Substring matching is `~=` only, and the field names are not the DTO's:
+
+- `name ~= "login"` (substring), `name = "Login smoke"` (exact), `name != "x"`;
+- `tag = "smoke"`, `tag in ["smoke", "regress"]`, `not tag = "smoke"` — not `tag.name`;
+- `status = "Active"`, `workflow = "Default Manual"`, `layer = "API"` — not `status.name`/`testLayer`;
+- `automation = true`, `flaky = false`, `muted = true` — not `automated`;
+- `cf["Severity"] = "high"`, `cfv in ["high"]`, `role["Owner"] = "user1"`;
+- `id >= 100`, `createdDate > 1672531200000` — dates are epoch milliseconds, unquoted;
+- conditions join with `and` / `or` (`and` binds tighter), grouping is parentheses.
+
+A wrong query answers `400 invalid.aql` and `validate_aql` says `{valid: false}` — so validate first,
+search second.
+
+**Find a case and read it.** `search_test_cases(name="login")` turns the name into AQL `name ~= "login"` on
+the server — there is no client-side filtering. For a compound condition, `validate_aql(rql='tag = "smoke"')`
 first and pass the same `rql` to `search_test_cases` when it is valid. Then `get_test_case(id)`, then
 `get_test_case_steps(id)`.
 
@@ -69,7 +85,7 @@ results read-only; `reopen_launch(launch_id=...)` undoes that.
 bin, with no restore tool; `delete_launch(launch_id)` removes the launch with its results;
 `delete_test_plan(test_plan_id)` leaves the cases alone.
 
-**A test plan.** `create_test_plan(name="Smoke", project_id=..., base_rql='tag.name = "smoke"', tree_selection_json='{"leafsInclude": [1001]}')`;
+**A test plan.** `create_test_plan(name="Smoke", project_id=..., base_rql='tag = "smoke"', tree_selection_json='{"leafsInclude": [1001]}')`;
 `update_test_plan(id, name=...)` builds the body from the fields you pass only, and `clear=true` empties a
 string field.
 
