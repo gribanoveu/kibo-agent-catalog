@@ -242,6 +242,18 @@
       "description": "Kubernetes role: stops kubeDelete of a StatefulSet or a PersistentVolumeClaim, whose data the app's backup does not carry, and kubeScale to 0, which stops a workload on the agent's own initiative. The namespace is already pinned by the app and cluster-wide kinds are refused, so this guards what the approval card does not. Reads the call's own arguments from stdin, 5 s budget.",
       "rev": "1",
       "path": "hooks/kube-delete-guard.json"
+    },
+    {
+      "id": "testops-cli",
+      "kind": "skill",
+      "name": "Allure TestOps из терминала",
+      "path": "skills/testops-cli",
+      "files": [
+        "SKILL.md",
+        "aql.md"
+      ],
+      "rev": "1",
+      "description": "The same Allure TestOps domain, driven from the shell instead of an MCP server: every tool is one command - `npx -y @gribanoveu/mcp-testops call <tool> '<json>'`, with `--list` and `--schema` to look before calling. The 30 tool descriptions (29 kB) then stay out of the context, which is the point: the model reads argument names and recipes from the skill instead of carrying every schema in every request. Includes aql.md - fields of test cases, results and launches, operators, epoch dates, subfields, ready-made queries - and the recipes for finding a case, reading steps and history, running a selection, recording results and cleaning up. Pick this one when the testops MCP server is not installed or the context is tight; pick testops-mcp when the server is registered."
     }
   ]
 }
