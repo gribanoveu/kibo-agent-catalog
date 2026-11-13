@@ -95,6 +95,9 @@ string field.
   `custom_fields_json`, `scenario_json`, `tree_selection_json`. The exact shape is in the tool's docstring.
   `tags_json` → `[{"id": 3, "name": "smoke"}]` (the id is required), `members_json` → the role as an object
   `{"id": 1, "name": "MEMBER"}`, `custom_fields_json` → `[{"customField": {"id": 12, "name": "Severity"}, "name": "high"}]`.
+- **List filters**: `list_projects(search=...)` narrows on the server (the API parameter is `query`);
+  `list_launches(search=...)` becomes launch AQL, or pass `rql='tag = "smoke" and closed = true'`;
+  test plans have no server-side filter, so `search` narrows the page it already fetched.
 - **Paging**: `page` starts at 0, `size` defaults to 50 and stops at 100; the answer carries
   `totalElements`, `totalPages` and `number`, so a partial selection is visible.
 - **Sorting**: `sort="createdDate,DESC"`.
