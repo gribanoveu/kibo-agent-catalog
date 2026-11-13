@@ -74,7 +74,7 @@
       "kind": "skill",
       "name": "Allure TestOps",
       "description": "Hands the model the Allure TestOps domain as the tools see it: which id comes from which reference tool, the read-then-write map of the 30 tools, ready-made chains (find a case, read its steps, its history, run a selection, read the results), the JSON shapes of tags, members and custom fields, paging and sort, what the server deliberately cannot do, and how to read each kind of error answer. Ships aql.md beside SKILL.md: the query language as the stand accepts it - every field of test cases, results and launches, the operators, epoch dates, subfields and the ready-made queries. Use together with the testops MCP entry, which this skill describes.",
-      "rev": "2",
+      "rev": "3",
       "path": "skills/testops-mcp",
       "files": [
         "SKILL.md",
@@ -252,8 +252,8 @@
         "SKILL.md",
         "aql.md"
       ],
-      "rev": "1",
-      "description": "The same Allure TestOps domain, driven from the shell instead of an MCP server: every tool is one command - `npx -y @gribanoveu/mcp-testops call <tool> '<json>'`, with `--list` and `--schema` to look before calling. The 30 tool descriptions (29 kB) then stay out of the context, which is the point: the model reads argument names and recipes from the skill instead of carrying every schema in every request. Includes aql.md - fields of test cases, results and launches, operators, epoch dates, subfields, ready-made queries - and the recipes for finding a case, reading steps and history, running a selection, recording results and cleaning up. Pick this one when the testops MCP server is not installed or the context is tight; pick testops-mcp when the server is registered."
+      "rev": "2",
+      "description": "The same Allure TestOps domain, driven from the shell instead of an MCP server: every tool is one command - `npx -y @gribanoveu/mcp-testops call <tool> '<json>'`, with `--list` and `--schema` to look before calling - so the 30 tool descriptions (29 kB) stay out of the context. Carries what the tool cannot say itself: where a token already exists on the machine, that it is never printed or committed, how to pass it for a single command, and how to read each failure once the settings are in place. Includes aql.md with every field, operator and ready-made query. Pick this one when the MCP server is not installed or the context is tight; pick testops-mcp when the server is registered."
     }
   ]
 }
